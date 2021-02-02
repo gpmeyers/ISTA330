@@ -10,6 +10,14 @@ output: 4
        whatever other pairs we choose the sum of the minimums will not exceed 4.
 */
 
-var maxSumOfMins = function(input) {
+var maxSumOfMins = function (input) {
+       input.sort(function (a, b) { return a - b; });
 
+       var sum = 0;
+
+       for (var i = 0; i < input.length - 1; i += 2) {
+              sum += input[i];
+       }
+
+       return sum;
 };
