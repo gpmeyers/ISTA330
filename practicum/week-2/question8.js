@@ -8,14 +8,12 @@ output: [1, 0, 1, 2]
 */
 
 var biggerAndEven = function (input) {
-    input.sort(function (a, b) { return a - b; });
-
     var output = [];
 
-    for (var i = 0; i < input.length - 1; i++) {
+    for (var i = 0; i < input.length; i++) {
         var currNum = 0;
-        for (var j = i + 1; j < input.length; j++) {
-            if (input[j] % 2 == 0) {
+        for (var j = 0; j < input.length; j++) {
+            if (input[j] > input[i] && input[j] % 2 == 0) {
                 currNum++;
             }
         }

@@ -23,7 +23,7 @@ var maxMinusMin = function (n) {
             min = currDigit;
         }
 
-        n /= 10;
+        n = Math.floor(n / 10);
     }
 
     if (n > max) {
