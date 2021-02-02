@@ -15,5 +15,5 @@ var suffleString = function (input, shuffleIndices) {
         output[shuffleIndices[i]] = input[i];
     }
 
-    return output.toString();
+    return output.toString().replace(",", "");
 };
