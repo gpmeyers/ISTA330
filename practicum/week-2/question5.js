@@ -14,18 +14,17 @@ output: 3
 var minimalReduction = function (n) {
     var numOps = 0;
 
-    while (n % 4 == 0) {
-        n /= 4;
-        numOps++;
-    }
-
-    while (n % 3 == 0) {
-        n /= 3;
-        numOps++;
-    }
-
     while (n > 0) {
-        n--;
+        if (n % 4 == 0) {
+            n /= 4;
+        }
+        else if (n % 3 == 0) {
+            n /= 3;
+        }
+        else {
+            n--;
+        }
+
         numOps++;
     }
 
