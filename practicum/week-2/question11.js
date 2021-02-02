@@ -9,6 +9,14 @@ input: [2, 5, 4, 2] (this means in the encoded list we will have two 5's and fou
 output: [5, 5, 2, 2, 2, 2]
 */
 
-var decode = function(input) {
+var decode = function (input) {
+    var output = [];
 
+    for (var i = 0; i < input.length / 2; i++) {
+        for (var j = 0; j < input[2 * i]; j++) {
+            output.push(input[(2 * i) + 1]);
+        }
+    }
+
+    return output;
 };

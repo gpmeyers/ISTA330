@@ -19,6 +19,8 @@ var biggerAndEven = function (input) {
                 currNum++;
             }
         }
-        sums[i] = currNum;
+        output[i] = currNum;
     }
+
+    return output;
 };
