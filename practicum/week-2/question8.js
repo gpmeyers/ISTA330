@@ -7,6 +7,18 @@ input: [23, 44, 12, 4]
 output: [1, 0, 1, 2]
 */
 
-var biggerAndEven = function(input) {
+var biggerAndEven = function (input) {
+    input.sort(function (a, b) { return a - b; });
 
+    var output = [];
+
+    for (var i = 0; i < input.length - 1; i++) {
+        var currNum = 0;
+        for (var j = i + 1; j < input.length; j++) {
+            if (input[j] % 2 == 0) {
+                currNum++;
+            }
+        }
+        sums[i] = currNum;
+    }
 };
