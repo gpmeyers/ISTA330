@@ -5,6 +5,13 @@ input: [1, 2, 2, 3, 4, 7, 9]
 output: 3 
 */
 
-var median = function(input) {
+var median = function (input) {
+    input.sort(function (a, b) { return a - b; });
 
+    if (input.length % 2 == 0) {
+        return ((input[input.length / 2] + input[((input.length / 2) + 1)]) / 2);
+    }
+    else {
+        return input[input.length / 2];
+    }
 };
