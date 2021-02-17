@@ -16,8 +16,23 @@ input: [12, 6, 2, 2, 2, 0]
 output: true
 */
 
-var isMonotonic = function(input) {
+var isMonotonic = function (input) {
+    let isMonotoneIncr = true;
+    let isMonotoneDecr = true;
 
+    for (let i = 1; i < input.length; i++) {
+        if (input[i] > input[i - 1]) {
+            isMonotoneDecr = false;
+        }
+    }
+
+    for (let i = 1; i < input.length; i++) {
+        if (input[i] < input[i - 1]) {
+            isMonotoneIncr = false;
+        }
+    }
+
+    return isMonotoneDecr || isMonotoneIncr;
 };
 
 console.log('hi');

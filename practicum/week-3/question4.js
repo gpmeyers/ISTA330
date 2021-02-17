@@ -12,6 +12,16 @@ Example:
  output: true
 */
 
-var hasDuplicates = function(input) {
+var hasDuplicates = function (input) {
+    let hasSeen = [];
 
+    for (let i = 0; i < input.length; i++) {
+        if (hasSeen.includes(input[i])) {
+            return true;
+        }
+
+        hasSeen.push(input[i]);
+    }
+
+    return false;
 };
