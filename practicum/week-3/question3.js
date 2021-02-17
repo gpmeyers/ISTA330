@@ -12,6 +12,32 @@ output: [
 ]
 */
 
-var PascalTriangle = function(n) {
+var PascalTriangle = function (n) {
+  if (n <= 0) {
+    return [];
+  }
+  if (n == 1) {
+    return [[1]];
+  }
+  if (n == 2) {
+    return [[1], [1, 1]];
+  }
 
+  let output = [[1], [1, 1]];
+  let curr = [];
+
+  for (let i = 2; i < n; i++) {
+    curr.push(1);
+
+    for (let j = 1; j < output[i - 1].length; j++) {
+      curr.push(output[i - 1][j] + output[i - 1][j - 1]);
+    }
+
+    curr.push(1);
+    output.push(curr);
+
+    curr = [];
+  }
+
+  return output;
 };

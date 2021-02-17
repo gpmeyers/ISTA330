@@ -9,6 +9,20 @@ is at least twice as much as every other number
          output: true
 */
 
-var largestNumberIsAtLeastTwice = function(input) {
-   
+var largestNumberIsAtLeastTwice = function (input) {
+        let max = Math.max(...input);
+        let hasPassed = false;
+
+        for (let i = 0; i < input.length; i++) {
+                if (!hasPassed && input[i] === max) {
+                        hasPassed = true;
+                        continue;
+                }
+
+                if ((input[i] * 2) > max) {
+                        return false;
+                }
+        }
+
+        return true;
 };
