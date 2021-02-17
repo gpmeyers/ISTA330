@@ -31,7 +31,7 @@ var m_element = function (input) {
         }
     }
 
-    if (maxCount > n / 2) {
+    if (maxCount > input.length / 2) {
         return input[index];
     }
 
