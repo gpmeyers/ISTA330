@@ -13,5 +13,5 @@ output: [[1,4], [2,5], [3,6]]
 
 var transpose = function (M) {
     let [row] = M
-    return row.map((value, column) => matrix.map(row => row[column]))
+    return row.map((_, column) => M.map(row => row[column]))
 };
