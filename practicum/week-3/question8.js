@@ -12,6 +12,26 @@ input: [3,5,3,3,5,1]
 output: 3
 */
 
-var d_integer = function(input) {
+var d_integer = function (input) {
+    let map = {};
+    largestDInt = -1;
 
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] in map) {
+            map[input[i]]++;
+        }
+        else {
+            map[input[i]] = 0;
+        }
+    }
+
+    for (let key in map) {
+        if (map[key] === key) {
+            if (key > largestDInt) {
+                largestDInt = key;
+            }
+        }
+    }
+
+    return largestDInt;
 };
