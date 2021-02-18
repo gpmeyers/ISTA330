@@ -26,7 +26,7 @@ var d_integer = function (input) {
     }
 
     for (let key in map) {
-        if (map[key] === key) {
+        if (map[key] == key) {
             if (key > largestDInt) {
                 largestDInt = key;
             }
