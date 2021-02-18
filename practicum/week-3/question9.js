@@ -14,38 +14,37 @@ so there are two groups with the largest size.
 
 var largestGroupsCount = function (n) {
     let map = {};
-    let iSum;
+    let sum1;
+    let x;
 
-    for (let i = 1; i <= n; i++) {
-        iSum = 0;
-        let x = i;
-
+    for (let i = 1; i < n + 1; i++) {
+        sum1 = 0;
+        x = n;
         while (x != 0) {
-            iSum += x % 10;
+            sum1 += x % 10;
             x = Math.floor(x / 10);
         }
 
-        if (iSum in map) {
-            map[iSum]++;
+        if (sum1 in map) {
+            map[sum1]++;
         }
         else {
-            map[iSum = 0];
+            map[sum1] = 1;
         }
     }
 
-    let ans = 1;
-    let max = 0;
+    let size = 0;
+    let count = 0;
 
-    for (let key in map) {
-        if (map[key] > max) {
-            max = map[key];
-            ans = 1;
+    for (key in map) {
+        if (map[key] > size) {
+            size = map[key];
+            count = 1;
         }
-
-        else if (map[key] == max) {
-            ans++;
+        else if (map[key] == size) {
+            count++;
         }
     }
 
-    return ans;
+    return count;
 };
