@@ -21,7 +21,7 @@ var d_integer = function (input) {
             map[input[i]]++;
         }
         else {
-            map[input[i]] = 0;
+            map[input[i]] = 1;
         }
     }
 
