@@ -100,6 +100,36 @@
             rose,
             waterlily
         ];
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            let display = document.getElementById("flowersDiv");
+            let div1 = document.createElement("div");
+            let div2 = document.createElement("div");
+            display.appendChild(div1);
+            display.appendChild(div2);
+
+            for (let i = 0; i < flowers.length; i++) {
+                let fig = document.createElement("figure");
+                fig.style.float = "left";
+                fig.style.width = "17.5%";
+                let img = document.createElement("img");
+                img.src = "images/" + flowers[i].picture;
+                img.alt = flowers[i].name;
+                let caption = document.createElement("figcaption");
+                let text = document.createTextNode(flowers[i].name);
+
+                caption.appendChild(text);
+                fig.appendChild(img);
+                fig.appendChild(caption);
+
+                if (i <= 3) {
+                    div1.appendChild(fig);
+                }
+                else {
+                    div2.appendChild(fig);
+                }
+            }
+        });
     </script>
 </body>
 
