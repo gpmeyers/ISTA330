@@ -102,21 +102,26 @@
         ];
 
         document.addEventListener("DOMContentLoaded", function (event) {
+            addElements(flowers);
+        });
+
+        let addElements = function (arr) {
             let display = document.getElementById("flowersDiv");
             let div1 = document.createElement("div");
             let div2 = document.createElement("div");
             display.appendChild(div1);
             display.appendChild(div2);
 
-            for (let i = 0; i < flowers.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 let fig = document.createElement("figure");
                 fig.style.float = "left";
                 fig.style.width = "17.5%";
+                fig.id = arr[i].name;
                 let img = document.createElement("img");
-                img.src = "images/" + flowers[i].picture;
-                img.alt = flowers[i].name;
+                img.src = "images/" + arr[i].picture;
+                img.alt = arr[i].name;
                 let caption = document.createElement("figcaption");
-                let text = document.createTextNode(flowers[i].name);
+                let text = document.createTextNode(arr[i].name);
 
                 caption.appendChild(text);
                 fig.appendChild(img);
@@ -129,7 +134,29 @@
                     div2.appendChild(fig);
                 }
             }
-        });
+
+            let pictures = document.getElementsByTagName("figure");
+
+            for (let i = 0; i < pictures.length; i++) {
+                pictures[i].addEventListener("click", function () {
+                    flowers.sort(function (a, b) {
+                        return a.name.localeCompare(b.name);
+                    });
+
+                    let clickedName = this.id;
+                    let front;
+
+                    while (flowers[0].name != clickedName) {
+                        front = flowers.shift();
+                        flowers.push(front);
+                    }
+
+                    document.getElementById("flowersDiv").innerHTML = "";
+
+                    addElements(flowers);
+                });
+            }
+        }
     </script>
 </body>
 
